@@ -31,7 +31,7 @@ See the example `test_labels.csv` in the `sample_data` folder.
 ## Hyperparameters
 The training algorithm takes as input the following hyperparameters:
 - `units`: `int`. The number of units of the LSTM layer (default = 8).
-- `dropout`: `float`. The rate of the dropout layer after the LSTM layer (default = 0.8).
+- `dropout`: `float`. The rate of the dropout layer (default = 0.8).
 - `filters-1`: `int`. The number of filters of the first convolutional layer (default = 128).
 - `kernel-size-1`: `int`. The size of the kernel of the first convolutional layer (default = 8).
 - `filters-2`: `int`. The number of filters of the second convolutional layer (default = 256).
