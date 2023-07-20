@@ -3,8 +3,6 @@
 This algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
 It implements both training and inference and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
-The algorithm supports multi-GPU training and inference on a single instance, which are implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
-The algorithm does not support multi-node (or distributed) training and inference across multiple instances. 
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
@@ -18,6 +16,9 @@ The class labels should be stored in the first column, while the time series val
 The class label values should be integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
 See the examples `train.csv` and `valid.csv` in the `sample_data` folder.
+
+The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
+The algorithm does not support multi-node (or distributed) training across multiple instances. 
 
 ## Inference
 The inference algorithm takes as input a CSV file containing the time series.
