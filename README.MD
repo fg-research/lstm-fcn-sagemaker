@@ -11,12 +11,13 @@ The training and inference Docker images were built by extending the PyTorch 2.0
 ## Training
 The training algorithm has two data channels: `"training"` and `"testing"`. 
 The `"training"` channel is mandatory, while the `"testing"` channel is optional.
-In both cases the data should be provided in a CSV file containing the time series and their class labels.
+The data should be provided in a CSV file containing the time series and their class labels.
 The class labels should be stored in the first column, while the time series values should be stored in the subsequent columns.
 The class label values should be integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
 See the examples `train.csv` and `valid.csv` in the `sample_data` folder.
 
+### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
 The algorithm does not support multi-node (or distributed) training across multiple instances. 
 
