@@ -81,7 +81,7 @@ See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
 The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers from `0` to `n_classes - 1`, where `n_classes` is the number of classes. 
 The predicted class labels are returned in CSV format.
-See the sample output file `test_labels.csv` in the `data/inference/output` folder.
+See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
 
 See `notebook.ipynb` for an example of how to launch a batch transform job.
 
@@ -89,6 +89,7 @@ See `notebook.ipynb` for an example of how to launch a batch transform job.
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
+See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
