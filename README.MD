@@ -83,12 +83,12 @@ The inference algorithm outputs the predicted class labels in the same format as
 The predicted class labels are returned in CSV format.
 See the sample output file `test_labels.csv` in the `data/inference/output` folder.
 
-See `notebook.ipynb` for an example of how to launch a batch transform job and deploy the model to an endpoint with the SageMaker Python SDK.
+See `notebook.ipynb` for an example of how to launch a batch transform job.
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See `notebook.ipynb` for an example of how to invoke the endpoint and process the response.
+See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
