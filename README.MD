@@ -32,6 +32,7 @@ However, the algorithm implements only the general LSTM layer, the attention LST
 ### Training
 The training algorithm has two input data channels: `"training"` and `"testing"`. 
 The `"training"` channel is mandatory, while the `"testing"` channel is optional.
+
 The data should be provided in a CSV file containing the time series and their class labels.
 Each row of the CSV file represents a time series, while each column represents a time step.
 All time series should have the same length and should not contain missing values.
