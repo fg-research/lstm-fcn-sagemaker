@@ -46,7 +46,6 @@ See `notebook.ipynb` for an example of how to launch a training job with the Sag
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
 The algorithm does not support multi-node (or distributed) training across multiple instances. 
 
-### Tuning
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
 - `units`: `int`. The number of units of the LSTM layer (default = 8).
