@@ -23,10 +23,14 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 ## Inference
 The inference algorithm takes as input a CSV file containing the time series.
-The CSV file should not contain any index column or column headers. 
+The CSV file should not contain any index column or column headers.
 See the example `test_data.csv` in the `sample_data` folder.
-The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. The predicted class labels are returned in CSV format.
+The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. 
+The predicted class labels are returned in CSV format.
 See the example `test_labels.csv` in the `sample_data` folder.
+
+### Endpoints
+The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
 ## Hyperparameters
 The training algorithm takes as input the following hyperparameters:
@@ -53,11 +57,4 @@ If the `"testing"` data channel is provided, the training algorithm also logs th
 
 ## References
 Karim, F., Majumdar, S., Darabi, H. and Chen, S., 2017. LSTM fully convolutional networks for time series classification. *IEEE access*, 6, pp.1662-1669.
-
-
-
-
-
-
-
 
