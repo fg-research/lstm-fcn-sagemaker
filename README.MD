@@ -7,7 +7,7 @@ The training and inference Docker images were built by extending the PyTorch 2.0
 ## Model Description
 ### Model Architecture
 The LSTM-FCN model includes two blocks: a recurrent block and a convolutional block.
-The recurrent block consists of a single LSTM layer followed by a dropout layer.
+The recurrent block consists of a single LSTM layer (either general or with attention) followed by a dropout layer.
 The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
 
 The input time series are passed to both blocks. 
@@ -17,6 +17,10 @@ The outputs of the two blocks are concatenated and passed to a multi-class class
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
 *LSTM-FCN architecture (source: [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939))*
+
+### Model Implementation
+The algorithm implements the model as described above with no changes. 
+However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
 
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
@@ -74,5 +78,5 @@ If the `"testing"` data channel is provided, the training algorithm also logs th
 - `test:acc`: `float`. Test set accuracy.
 
 ## References
-F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
+- F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
 
