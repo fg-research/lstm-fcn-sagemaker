@@ -41,7 +41,7 @@ The class labels should be integers from `0` to `n_classes - 1`, where `n_classe
 The CSV file should not contain any index column or column headers. 
 
 See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
-See `notebook.ipynb` for an example of how to launch a training job with the SageMaker Python SDK.
+See `notebook.ipynb` for an example of how to launch a training job.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -70,7 +70,7 @@ If the `"validation"` channel is provided, the training algorithm also logs the 
 - `valid:loss`: `float`. Validation loss.
 - `valid:acc`: `float`. Validation accuracy.
 
-See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job with the SageMaker Python SDK.
+See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job.
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
@@ -88,7 +88,7 @@ See `notebook.ipynb` for an example of how to launch a batch transform job and d
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See `notebook.ipynb` for an example of how to invoke the endpoint with the AWS SDK for Python (Boto3) and process the response.
+See `notebook.ipynb` for an example of how to invoke the endpoint and process the response.
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
