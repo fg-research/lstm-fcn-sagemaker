@@ -1,6 +1,6 @@
 # LSTM-FCN SageMaker Algorithm
 
-This algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
+This SageMaker algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
@@ -21,15 +21,14 @@ The outputs of the two blocks are concatenated and passed to a multi-class class
 ### Model Performance
 The LSTM-FCN model achieved state-of-the-art performance on 43 of the 85 benchmark datasets in the 2015 version of the [UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/).
 
-### Model Implementation
-The algorithm implements the model as described above with no changes. 
-However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
-
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
 - **Repository:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
 
 ## SageMaker Algorithm Description
+The SageMaker algorithm implements the model as described above with no changes. 
+However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
+
 ### Training
 The training algorithm has two input data channels: `"training"` and `"testing"`. 
 The `"training"` channel is mandatory, while the `"testing"` channel is optional.
