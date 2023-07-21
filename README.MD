@@ -66,7 +66,7 @@ The training algorithm logs the following metrics:
 - `train:loss`: `float`. Training loss.
 - `train:acc`: `float`. Training accuracy.
 
-If the `"testing"` data channel is provided, the training algorithm also logs the following additional metrics:
+If the `"validation"` channel is provided, the training algorithm also logs the following additional metrics:
 - `valid:loss`: `float`. Validation loss.
 - `valid:acc`: `float`. Validation accuracy.
 
