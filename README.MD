@@ -63,12 +63,12 @@ The training algorithm takes as input the following hyperparameters:
 
 #### Metrics
 The training algorithm logs the following metrics:
-- `train:loss`: `float`. Training set loss.
-- `train:acc`: `float`. Training set accuracy.
+- `train:loss`: `float`. Training loss.
+- `train:acc`: `float`. Training accuracy.
 
 If the `"testing"` data channel is provided, the training algorithm also logs the following additional metrics:
-- `test:loss`: `float`. Test set loss.
-- `test:acc`: `float`. Test set accuracy.
+- `valid:loss`: `float`. Validation loss.
+- `valid:acc`: `float`. Validation accuracy.
 
 See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job with the SageMaker Python SDK.
 
