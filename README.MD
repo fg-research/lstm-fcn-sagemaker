@@ -36,7 +36,7 @@ Each row represents a time series, while each column represents a timestep.
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 The class labels should be integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
-See the examples `train.csv` and `valid.csv` in the `sample_data` folder.
+See the examples `train.csv` and `valid.csv` in the `data` folder.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -46,10 +46,10 @@ The algorithm does not support multi-node (or distributed) training across multi
 The inference algorithm takes as input a CSV file containing the time series.
 Each row represents a time series, while each column represents a timestep.
 The CSV file should not contain any index column or column headers.
-See the example `test_data.csv` in the `sample_data` folder.
+See the example `test_data.csv` in the `data` folder.
 The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. 
 The predicted class labels are returned in CSV format.
-See the example `test_labels.csv` in the `sample_data` folder.
+See the example `test_labels.csv` in the `data` folder.
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
