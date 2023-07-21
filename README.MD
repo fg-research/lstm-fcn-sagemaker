@@ -1,6 +1,6 @@
 # LSTM-FCN SageMaker Algorithm
 
-This SageMaker algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
+This algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
@@ -12,7 +12,7 @@ The convolutional block consists of three convolutional layers, each followed by
 
 The input time series are passed to both blocks. 
 The convolutional block processes each time series as a single feature observed across multiple time steps, while the recurrent block processes each time series as multiple features observed at a single time step (referred to as dimension shuffling).
-The outputs of the two blocks are concatenated and passed to a multi-class classification layer with softmax activation. 
+The outputs of the two blocks are concatenated and passed to a final output layer with softmax activation. 
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
@@ -26,7 +26,7 @@ The LSTM-FCN model achieved state-of-the-art performance on 43 of the 85 benchma
 - **Repository:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
 
 ## SageMaker Algorithm Description
-The SageMaker algorithm implements the model as described above with no changes. 
+The algorithm implements the model as described above with no changes. 
 However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
 
 ### Training
@@ -38,26 +38,15 @@ All time series should have the same length and should not contain missing value
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 The class labels should be integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
-See the examples `train.csv` and `valid.csv` in the `data` folder.
+See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
+See `notebook.ipynb` for an example of how to launch a training job with the SageMaker Python SDK.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
 The algorithm does not support multi-node (or distributed) training across multiple instances. 
 
-### Inference
-The inference algorithm takes as input a CSV file containing the time series.
-Each row of the CSV file represents a time series, while each column represents a time step.
-The CSV file should not contain any index column or column headers.
-All time series should have the same length and should not contain missing values.
-See the example `test_data.csv` in the `data` folder.
-The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. 
-The predicted class labels are returned in `text/csv` format.
-See the example `test_labels.csv` in the `data` folder.
-
-#### Endpoints
-The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
-
-### Hyperparameters
+#### Hyperparameter Tuning
+##### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
 - `units`: `int`. The number of units of the LSTM layer (default = 8).
 - `dropout`: `float`. The rate of the dropout layer (default = 0.8).
@@ -71,7 +60,7 @@ The training algorithm takes as input the following hyperparameters:
 - `batch-size`: `int`. The batch size used for training (default = 128).
 - `epochs`: `int`. The number of training epochs (default = 2000).
 
-### Metrics
+##### Metrics
 The training algorithm logs the following metrics:
 - `train:loss`: `float`. Training set loss.
 - `train:acc`: `float`. Training set accuracy.
@@ -79,6 +68,23 @@ The training algorithm logs the following metrics:
 If the `"testing"` data channel is provided, the training algorithm also logs the following additional metrics:
 - `test:loss`: `float`. Test set loss.
 - `test:acc`: `float`. Test set accuracy.
+
+See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job with the SageMaker Python SDK.
+
+### Inference
+The inference algorithm takes as input a CSV file containing the time series.
+Each row of the CSV file represents a time series, while each column represents a time step.
+The CSV file should not contain any index column or column headers.
+All time series should have the same length and should not contain missing values.
+See the sample input file `test_data.csv` in the `data/inference/input` folder.
+The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. 
+The predicted class labels are returned in CSV format.
+See the sample output file `test_labels.csv` in the `data/inference/output` folder.
+See `notebook.ipynb` for an example of how to launch a batch transform job and deploy the model to an endpoint with the SageMaker Python SDK.
+
+#### Endpoints
+The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
+See `notebook.ipynb` for an example of how to invoke the endpoint with the AWS SDK for Python (Boto3) and process the response.
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
