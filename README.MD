@@ -11,12 +11,15 @@ The recurrent block consists of a single LSTM layer (either general or with atte
 The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
 
 The input time series are passed to both blocks. 
-The convolutional block processes each time series as a single feature observed across multiple timesteps, while the recurrent block processes each time series as multiple features observed at a single timestep (referred to as dimension shuffling).
+The convolutional block processes each time series as a single feature observed across multiple time steps, while the recurrent block processes each time series as multiple features observed at a single time step (referred to as dimension shuffling).
 The outputs of the two blocks are concatenated and passed to a multi-class classification layer with softmax activation. 
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
 *LSTM-FCN architecture (source: [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939))*
+
+### Model Performance
+The LSTM-FCN model achieved state-of-the-art performance on 43 of the 85 benchmark datasets in the 2015 version of the [UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/).
 
 ### Model Implementation
 The algorithm implements the model as described above with no changes. 
@@ -25,14 +28,14 @@ However, the algorithm implements only the general LSTM layer, the attention LST
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
 - **Repository:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
-- **Leaderboard:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
 
 ## SageMaker Algorithm Description
 ### Training
 The training algorithm has two input data channels: `"training"` and `"testing"`. 
 The `"training"` channel is mandatory, while the `"testing"` channel is optional.
 The data should be provided in a CSV file containing the time series and their class labels.
-Each row represents a time series, while each column represents a timestep.
+Each row of the CSV file represents a time series, while each column represents a time step.
+All time series should have the same length and should not contain missing values.
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 The class labels should be integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
@@ -44,11 +47,12 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
-Each row represents a time series, while each column represents a timestep.
+Each row of the CSV file represents a time series, while each column represents a time step.
 The CSV file should not contain any index column or column headers.
+All time series should have the same length and should not contain missing values.
 See the example `test_data.csv` in the `data` folder.
 The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers between `0` and `n_classes - 1`, where `n_classes` is the number of classes. 
-The predicted class labels are returned in CSV format.
+The predicted class labels are returned in `text/csv` format.
 See the example `test_labels.csv` in the `data` folder.
 
 #### Endpoints
