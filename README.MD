@@ -35,6 +35,7 @@ The `"training"` channel is mandatory, while the `"validation"` channel is optio
 The data should be provided in a CSV file containing the time series and their class labels.
 Each row of the CSV file represents a time series, while each column represents a time step.
 All time series should have the same length and should not contain missing values.
+
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 The class labels should be integers from `0` to `n_classes - 1`, where `n_classes` is the number of classes.
 The CSV file should not contain any index column or column headers. 
