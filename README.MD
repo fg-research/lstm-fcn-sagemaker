@@ -48,12 +48,12 @@ The training algorithm takes as input the following hyperparameters:
 
 ## Metrics
 The training algorithm logs the following metrics:
-- `train:loss`: Training set cross-entropy loss.
-- `train:acc`: Training set accuracy.
+- `train:loss`: `float`. Training set loss.
+- `train:acc`: `float`. Training set accuracy.
 
 If the `"testing"` data channel is provided, the training algorithm also logs the following additional metrics:
-- `test:loss`: Test set cross-entropy loss.
-- `test:acc`: Test set accuracy.
+- `test:loss`: `float`. Test set loss.
+- `test:acc`: `float`. Test set accuracy.
 
 ## References
 Karim, F., Majumdar, S., Darabi, H. and Chen, S., 2017. LSTM fully convolutional networks for time series classification. *IEEE access*, 6, pp.1662-1669.
