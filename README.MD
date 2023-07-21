@@ -11,7 +11,7 @@ The recurrent block consists of a single LSTM layer (either general or with atte
 The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
 
 The input time series are passed to both blocks. 
-The convolutional block processes each time series as a single feature observed across multiple timesteps, while the recurrent block processes each time series as multiple features observed at a single timestep.
+The convolutional block processes each time series as a single feature observed across multiple timesteps, while the recurrent block processes each time series as multiple features observed at a single timestep (referred to as dimension shuffling).
 The outputs of the two blocks are concatenated and passed to a multi-class classification layer with softmax activation. 
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
@@ -25,6 +25,7 @@ However, the algorithm implements only the general LSTM layer, the attention LST
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
 - **Repository:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
+- **Leaderboard:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
 
 ## SageMaker Algorithm Description
 ### Training
@@ -53,8 +54,7 @@ See the example `test_labels.csv` in the `sample_data` folder.
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-### Tuning
-#### Hyperparameters
+### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
 - `units`: `int`. The number of units of the LSTM layer (default = 8).
 - `dropout`: `float`. The rate of the dropout layer (default = 0.8).
@@ -68,7 +68,7 @@ The training algorithm takes as input the following hyperparameters:
 - `batch-size`: `int`. The batch size used for training (default = 128).
 - `epochs`: `int`. The number of training epochs (default = 2000).
 
-#### Metrics
+### Metrics
 The training algorithm logs the following metrics:
 - `train:loss`: `float`. Training set loss.
 - `train:acc`: `float`. Training set accuracy.
