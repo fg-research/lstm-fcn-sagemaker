@@ -52,10 +52,10 @@ The training algorithm takes as input the following hyperparameters:
 - `units`: `int`. The number of units of the LSTM layer (default = 8).
 - `dropout`: `float`. The rate of the dropout layer (default = 0.8).
 - `filters-1`: `int`. The number of filters of the first convolutional layer (default = 128).
-- `kernel-size-1`: `int`. The size of the kernel of the first convolutional layer (default = 8).
 - `filters-2`: `int`. The number of filters of the second convolutional layer (default = 256).
-- `kernel-size-2`: `int`. The size of the kernel of the second convolutional layer (default = 5).
 - `filters-3`: `int`. The number of filters of the third convolutional layer (default = 128).
+- `kernel-size-1`: `int`. The size of the kernel of the first convolutional layer (default = 8).
+- `kernel-size-2`: `int`. The size of the kernel of the second convolutional layer (default = 5).
 - `kernel-size-3`: `int`. The size of the kernel of the third convolutional layer (default = 3).
 - `lr`: `float`. The learning rate used for training (default = 0.001).
 - `batch-size`: `int`. The batch size used for training (default = 128).
