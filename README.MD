@@ -63,12 +63,12 @@ The training algorithm takes as input the following hyperparameters:
 
 #### Metrics
 The training algorithm logs the following metrics:
-- `train:loss`: `float`. Training loss.
-- `train:acc`: `float`. Training accuracy.
+- `train_loss`: `float`. Training loss.
+- `train_accuracy`: `float`. Training accuracy.
 
 If the `"validation"` channel is provided, the training algorithm also logs the following additional metrics:
-- `valid:loss`: `float`. Validation loss.
-- `valid:acc`: `float`. Validation accuracy.
+- `valid_loss`: `float`. Validation loss.
+- `valid_accuracy`: `float`. Validation accuracy.
 
 See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job.
 
