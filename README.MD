@@ -93,4 +93,5 @@ See the sample output file `real_time_predictions.csv` in the `data/inference/ou
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
+- F. Karim, S. Majumdar and H. Darabi, "Insights Into LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 7, pp. 67718-67725, 2019, [doi: 10.1109/ACCESS.2019.2916828](https://doi.org/10.1109/ACCESS.2019.2916828).
 
