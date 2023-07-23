@@ -1,5 +1,5 @@
 # LSTM-FCN SageMaker Algorithm
-This algorithm performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
+The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
@@ -37,7 +37,7 @@ Each row of the CSV file represents a time series, while each column represents 
 All time series should have the same length and should not contain missing values.
 
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
-The class labels should be integers from `0` to `n_classes - 1`, where `n_classes` is the number of classes.
+The class labels should be integers from `0` to `N - 1`, where `N` is the number of classes.
 The CSV file should not contain any index column or column headers. 
 
 See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
@@ -79,7 +79,7 @@ The CSV file should not contain any index column or column headers.
 All time series should have the same length and should not contain missing values.
 See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
-The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers from `0` to `n_classes - 1`, where `n_classes` is the number of classes. 
+The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers from `0` to `N - 1`, where `N` is the number of classes. 
 The predicted class labels are returned in CSV format.
 See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
 
