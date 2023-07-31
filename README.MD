@@ -1,5 +1,5 @@
 # LSTM-FCN SageMaker Algorithm
-The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN) model. 
+The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN). 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
@@ -9,9 +9,9 @@ The LSTM-FCN model includes two blocks: a recurrent block and a convolutional bl
 The recurrent block consists of a single LSTM layer (either general or with attention) followed by a dropout layer.
 The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
 
-The input time series are passed to both blocks. 
+The input time series are passed to both blocks.
 The convolutional block processes each time series as a single feature observed across multiple time steps, while the recurrent block processes each time series as multiple features observed at a single time step (referred to as dimension shuffling).
-The outputs of the two blocks are concatenated and passed to a final output layer with softmax activation. 
+The outputs of the two blocks are concatenated and passed to a final output layer with softmax activation.
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
@@ -22,7 +22,6 @@ The LSTM-FCN model achieved state-of-the-art performance on 43 of the 85 benchma
 
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
-- **Repository:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN)
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
