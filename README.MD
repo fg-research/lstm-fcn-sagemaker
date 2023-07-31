@@ -17,9 +17,6 @@ The outputs of the two blocks are concatenated and passed to a final output laye
 
 *LSTM-FCN architecture (source: [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939))*
 
-### Model Performance
-The LSTM-FCN model achieved state-of-the-art performance on 43 of the 85 benchmark datasets in the 2015 version of the [UCR Time Series Classification Archive](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/).
-
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
 
