@@ -33,7 +33,7 @@ The `"training"` channel is mandatory, while the `"validation"` channel is optio
 
 The data should be provided in a CSV file containing the time series and their class labels.
 Each row of the CSV file represents a time series, while each column represents a time step.
-All time series should have the same length and should not contain missing values.
+All the time series should have the same length and should not contain missing values.
 
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 The class labels should be integers from `0` to `N - 1`, where `N` is the number of classes.
@@ -75,7 +75,7 @@ See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job
 The inference algorithm takes as input a CSV file containing the time series.
 Each row of the CSV file represents a time series, while each column represents a time step.
 The CSV file should not contain any index column or column headers.
-All time series should have the same length and should not contain missing values.
+All the time series should have the same length and should not contain missing values.
 See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
 The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers from `0` to `N - 1`, where `N` is the number of classes. 
