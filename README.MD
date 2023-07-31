@@ -12,6 +12,7 @@ The convolutional block consists of three convolutional layers, each followed by
 The input time series are passed to both blocks.
 The convolutional block processes each time series as a single feature observed across multiple time steps, while the recurrent block processes each time series as multiple features observed at a single time step (referred to as dimension shuffling).
 The outputs of the two blocks are concatenated and passed to a final output layer with softmax activation.
+The model parameters are learned by minimizing the cross-entropy loss.
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
