@@ -46,7 +46,7 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
-- `units`: `int`. The number of units of the LSTM layer (default = 8).
+- `hidden-size`: `int`. The number of units of the LSTM layer (default = 8).
 - `dropout`: `float`. The rate of the dropout layer (default = 0.8).
 - `filters-1`: `int`. The number of filters of the first convolutional layer (default = 128).
 - `filters-2`: `int`. The number of filters of the second convolutional layer (default = 256).
