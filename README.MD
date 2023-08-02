@@ -26,8 +26,8 @@ The algorithm implements the model as described above with no changes.
 However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
 
 ### Training
-The training algorithm has two input data channels: `"training"` and `"validation"`. 
-The `"training"` channel is mandatory, while the `"validation"` channel is optional.
+The training algorithm has two input data channels: `training` and `validation`. 
+The `training` channel is mandatory, while the `validation` channel is optional.
 
 The data should be provided in a CSV file containing the time series and their class labels.
 Each row of the CSV file represents a time series, while each column represents a time step.
