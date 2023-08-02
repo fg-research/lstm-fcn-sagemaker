@@ -30,12 +30,11 @@ The training algorithm has two input data channels: `training` and `validation`.
 The `training` channel is mandatory, while the `validation` channel is optional.
 
 The data should be provided in a CSV file containing the time series and their class labels.
-Each row of the CSV file represents a time series, while each column represents a time step.
-All the time series should have the same length and should not contain missing values.
-
-The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
-The class labels should be integers from `0` to `N - 1`, where `N` is the number of classes.
 The CSV file should not contain any index column or column headers. 
+Each row of the CSV file represents a time series, while each column represents a time step.
+The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
+All the time series should have the same length and should not contain missing values.
+The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
 
 See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
 See `notebook.ipynb` for an example of how to launch a training job.
@@ -71,13 +70,13 @@ See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
-Each row of the CSV file represents a time series, while each column represents a time step.
 The CSV file should not contain any index column or column headers.
+Each row of the CSV file represents a time series, while each column represents a time step.
 All the time series should have the same length and should not contain missing values.
+The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
 See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
-The inference algorithm outputs the predicted class labels in the same format as they were provided for training, that is as integers from `0` to `N - 1`, where `N` is the number of classes. 
-The predicted class labels are returned in CSV format.
+The inference algorithm outputs the predicted class labels, which are returned in CSV format.
 See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
 
 See `notebook.ipynb` for an example of how to launch a batch transform job.
