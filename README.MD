@@ -24,6 +24,7 @@ The model parameters are learned by minimizing the cross-entropy loss.
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
 However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
+Note that the time series are scaled internally by the algorithm, there is no need to scale the time series in advance.
 
 ### Training
 The training algorithm has two input data channels: `"training"` and `"validation"`. 
