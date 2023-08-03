@@ -19,11 +19,12 @@ The model parameters are learned by minimizing the cross-entropy loss.
 *LSTM-FCN architecture (source: [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939))*
 
 ### Model Resources
-- **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939)
+- **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939).
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
 However, the algorithm implements only the general LSTM layer, the attention LSTM layer is not implemented.
+Furthermore, the algorithm allows for multiple LSTM layers, instead of only a single LSTM layer.
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
@@ -45,8 +46,9 @@ The algorithm does not support multi-node (or distributed) training across multi
 
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
-- `hidden-size`: `int`. The number of units of the LSTM layer (default = 8).
-- `dropout`: `float`. The rate of the dropout layer (default = 0.8).
+- `num-layers`: `int`. The number of LSTM layers (default = 1).
+- `hidden-size`: `int`. The number of hidden units of each LSTM layer (default = 8).
+- `dropout`: `float`. The dropout rate applied after each LSTM layer (default = 0.8).
 - `filters-1`: `int`. The number of filters of the first convolutional layer (default = 128).
 - `filters-2`: `int`. The number of filters of the second convolutional layer (default = 256).
 - `filters-3`: `int`. The number of filters of the third convolutional layer (default = 128).
