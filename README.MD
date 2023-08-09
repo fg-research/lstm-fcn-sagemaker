@@ -27,7 +27,7 @@ However, the algorithm implements only the general LSTM layer, the attention LST
 Furthermore, the algorithm allows for multiple LSTM layers, instead of only a single LSTM layer.
 
 ### Algorithm Resources
-- **Blog post:** [Time Series Classification with the LSTM-FCN SageMaker Algorithm from AWS Marketplace](https://medium.com/@fg-research/time-series-classification-with-the-lstm-fcn-sagemaker-algorithm-from-aws-marketplace-a096ded9da1?source=friends_link&sk=e34cb9822f69f7c84de5959a39c8ee00).
+- **Blog Post:** [Time Series Classification with the LSTM-FCN SageMaker Algorithm from AWS Marketplace](https://medium.com/@fg-research/time-series-classification-with-the-lstm-fcn-sagemaker-algorithm-from-aws-marketplace-a096ded9da1?source=friends_link&sk=e34cb9822f69f7c84de5959a39c8ee00).
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
