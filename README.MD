@@ -20,6 +20,7 @@ The model parameters are learned by minimizing the cross-entropy loss.
 
 ### Model Resources
 - **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939).
+- **Code:** [LSTM-FCN Official GitHub Repository](https://github.com/titu1994/LSTM-FCN).
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
