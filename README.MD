@@ -90,7 +90,6 @@ The algorithm supports only real-time inference endpoints. The inference image i
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
-## References
-- F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
-- F. Karim, S. Majumdar and H. Darabi, "Insights Into LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 7, pp. 67718-67725, 2019, [doi: 10.1109/ACCESS.2019.2916828](https://doi.org/10.1109/ACCESS.2019.2916828).
+### Algorithm Resources
+- **Blog Post:** [Time Series Classification with the LSTM-FCN SageMaker Algorithm from AWS Marketplace](https://medium.com/@fg-research/time-series-classification-with-the-lstm-fcn-sagemaker-algorithm-from-aws-marketplace-a096ded9da1?source=friends_link&sk=e34cb9822f69f7c84de5959a39c8ee00).
 
