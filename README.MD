@@ -56,7 +56,7 @@ The training algorithm takes as input the following hyperparameters:
 - `kernel-size-3`: `int`. The size of the kernel of the third convolutional layer (default = 3).
 - `lr`: `float`. The learning rate used for training (default = 0.001).
 - `batch-size`: `int`. The batch size used for training (default = 128).
-- `epochs`: `int`. The number of training epochs (default = 2000).
+- `epochs`: `int`. The number of training epochs (default = 100).
 
 #### Metrics
 The training algorithm logs the following metrics:
