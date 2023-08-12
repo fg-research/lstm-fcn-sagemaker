@@ -18,8 +18,7 @@ The model parameters are learned by minimizing the cross-entropy loss.
 
 *LSTM-FCN architecture (source: [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939))*
 
-### Model Resources
-- **Paper:** [LSTM Fully Convolutional Networks for Time Series Classification](https://doi.org/10.1109/ACCESS.2017.2779939).
+**Model Resources:** [Paper](https://doi.org/10.1109/ACCESS.2017.2779939) [Code](https://github.com/titu1994/LSTM-FCN).
 
 ## SageMaker Algorithm Description
 The algorithm implements the model as described above with no changes. 
