@@ -4,7 +4,6 @@ It implements both training and inference from CSV data and supports both CPU an
 The training and inference Docker images were built by extending the PyTorch 2.0 Python 3.10 SageMaker containers.
 
 ## Model Description
-### Model Architecture
 The LSTM-FCN model includes two blocks: a recurrent block and a convolutional block.
 The recurrent block consists of a single LSTM layer (either general or with attention) followed by a dropout layer.
 The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
