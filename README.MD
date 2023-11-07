@@ -35,9 +35,9 @@ Each row of the CSV file represents a time series, while each column represents 
 The class labels should be stored in the first column, while the time series should be stored in the subsequent columns.
 All the time series should have the same length and should not contain missing values.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
+See the sample input files [`train.csv`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/data/training/train.csv) and [`valid.csv`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/data/training/valid.csv).
 
-See the sample input files `train.csv` and `valid.csv` in the `data/training/` folder.
-See `notebook.ipynb` for an example of how to launch a training job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a training job.
 
 #### Distributed Training
 The algorithm supports multi-GPU training on a single instance, which is implemented through [torch.nn.DataParallel](https://pytorch.org/docs/stable/generated/torch.nn.DataParallel.html).
@@ -70,7 +70,7 @@ If the `validation` channel is provided, the training algorithm also logs the fo
 - `valid_loss`: `float`. Validation loss.
 - `valid_accuracy`: `float`. Validation accuracy.
 
-See `notebook.ipynb` for an example of how to launch a hyperparameter tuning job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a hyperparameter tuning job.
 
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series.
@@ -81,15 +81,14 @@ The time series are scaled internally by the algorithm, there is no need to scal
 See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
 The inference algorithm outputs the predicted class labels, which are returned in CSV format.
-See the sample output file `batch_predictions.csv` in the `data/inference/output/batch` folder.
+See the sample output files [`batch_predictions.csv`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/data/inference/output/batch/batch_predictions.csv) and [`real_time_predictions.csv`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/data/inference/output/real-time/real_time_predictions.csv).
 
-See `notebook.ipynb` for an example of how to launch a batch transform job.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) for an example of how to launch a batch transform job.
 
 #### Endpoints
 The algorithm supports only real-time inference endpoints. The inference image is too large to be uploaded to a serverless inference endpoint.
 
-See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
-See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
+See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
 **Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-classification-with-the-lstm-fcn-sagemaker-algorithm-from-aws-marketplace-a096ded9da1?source=friends_link&sk=e34cb9822f69f7c84de5959a39c8ee00)
 
