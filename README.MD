@@ -89,7 +89,7 @@ The algorithm supports only real-time inference endpoints. The inference image i
 
 See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
-**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-classification-with-the-lstm-fcn-sagemaker-algorithm-from-aws-marketplace-a096ded9da1?source=friends_link&sk=e34cb9822f69f7c84de5959a39c8ee00)
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/lstm-fcn-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://fg-research.com/blog/product/posts/lstm-fcn-ecg-classification.html)
 
 ## References
 - F. Karim, S. Majumdar, H. Darabi and S. Chen, "LSTM Fully Convolutional Networks for Time Series Classification," in *IEEE Access*, vol. 6, pp. 1662-1669, 2018, [doi: 10.1109/ACCESS.2017.2779939](https://doi.org/10.1109/ACCESS.2017.2779939).
