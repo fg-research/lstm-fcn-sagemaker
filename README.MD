@@ -2,6 +2,7 @@
 The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN). 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers.
+The algorithm can be used for binary and multiclass classification of univariate time series.
 
 ## Model Description
 The LSTM-FCN model includes two blocks: a recurrent block and a convolutional block.
