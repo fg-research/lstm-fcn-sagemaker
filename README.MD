@@ -1,5 +1,6 @@
 # LSTM-FCN SageMaker Algorithm
-The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN). 
+The [Time Series Classification (LSTM-FCN) Algorithm from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-vzxmyw25oqtx6) performs time series classification 
+with the Long Short-Term Memory Fully Convolutional Network (LSTM-FCN). 
 It implements both training and inference from CSV data and supports both CPU and GPU instances.
 The training and inference Docker images were built by extending the PyTorch 2.1.0 Python 3.10 SageMaker containers.
 The algorithm can be used for binary, multiclass and multilabel classification of univariate time series.
@@ -7,12 +8,13 @@ The algorithm can be used for binary, multiclass and multilabel classification o
 ## Model Description
 The LSTM-FCN model includes two blocks: a recurrent block and a convolutional block.
 The recurrent block consists of a single LSTM layer (either general or with attention) followed by a dropout layer.
-The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, and of a global average pooling layer.
+The convolutional block consists of three convolutional layers, each followed by batch normalization and ReLU activation, 
+and of a global average pooling layer.
 
 The input time series are passed to both blocks.
-The convolutional block processes each time series as a single feature observed across multiple time steps, while the recurrent block processes each time series as multiple features observed at a single time step (referred to as dimension shuffling).
+The convolutional block processes each time series as a single feature observed across multiple time steps, 
+while the recurrent block processes each time series as multiple features observed at a single time step (referred to as *dimension shuffling*).
 The outputs of the two blocks are concatenated and passed to a final linear output layer.
-The model parameters are learned by minimizing the cross-entropy loss.
 
 <img src=https://fg-research-assets.s3.eu-west-1.amazonaws.com/lstm-fcn-diagram.png style="width:80%;margin-top:30px;margin-bottom:20px"/>
 
@@ -32,6 +34,7 @@ The `training` channel is mandatory, while the `validation` channel is optional.
 The training and validation datasets should be provided as CSV files. The column names of the one-hot encoded class labels should 
 start with `"y"` (e.g. `"y1"`, `"y2"`, ...), while the column names of the time series values should start with 
 `"x"` (e.g. `"x1"`, `"x2"`, ...). 
+
 All the time series should have the same length and should not contain missing values.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
 
