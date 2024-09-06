@@ -81,8 +81,10 @@ See [`notebook.ipynb`](https://github.com/fg-research/lstm-fcn-sagemaker/blob/ma
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series values. 
 The column names of the time series values should start with `"x"` (e.g. `"x1"`, `"x2"`, ...).
+
 All the time series should have the same length and should not contain missing values.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
+
 See the sample input file `test_data.csv` in the `data/inference/input` folder.
 
 The inference algorithm outputs the predicted class labels, which are returned in CSV format.
